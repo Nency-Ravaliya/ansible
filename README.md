@@ -62,3 +62,21 @@ b.shell and command modules are similar in a way that they are used to execute a
      - command: 'echo "{{ item }}"'
        with_items: '{{ fruits }}'
 ```
+
+### modules 
+
+`playbook.yml`
+
+```
+---
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: 'Execute a script'
+      script: '/tmp/install_script.sh'    
+    - name: 'start the httpd service'
+      service:
+        name: httpd
+        state: started
+```
