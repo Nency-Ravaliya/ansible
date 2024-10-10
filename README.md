@@ -68,15 +68,19 @@ b.shell and command modules are similar in a way that they are used to execute a
 `playbook.yml`
 
 ```
----
 - name: 'hosts'
   hosts: all
   become: yes
   tasks:
     - name: 'Execute a script'
       script: '/tmp/install_script.sh'    
-    - name: 'start the httpd service'
+    - name: 'Start httpd service'
       service:
-        name: httpd
-        state: started
+        name: 'httpd'
+        state: 'started'
+    - name: Welcome to ansible-beginning cource
+      lineinfile: 
+        path: /var/www/html/index.html
+        line: "Welcome to ansible-beginning course"
+        create: true
 ```
